@@ -1,5 +1,3 @@
-/* TODO: need to make satisfying performance */
-
 const separate = (words, width) => {
     let line = [];
     let list = [];
@@ -33,7 +31,7 @@ const justifyText = (list, width) => {
     for (let row = 0; row < list.length - 1; row++) {
         const words = list[row];
         let length = words.join("").length;
-        while (length < width) {
+        while (words.length !== 1 && length < width) {
             for (let i = 0; i < words.length - 1; i++) {
                 words[i] = words[i] + " ";
                 length = words.join("").length;
