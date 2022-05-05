@@ -1,6 +1,6 @@
 const separate = (words, width) => {
+    let lines = [];
     let line = [];
-    let list = [];
     for (let i = 0; i < words.length; i++) {
         const word = words[i];
         let length = line.join("").length;
@@ -8,22 +8,22 @@ const separate = (words, width) => {
             line.push(word + " ");
         } else if ((length + word.length + 1 === width) || (length + word.length === width))  {
             line.push(word.trim());
-            list.push(line);
+            lines.push(line);
             line = [];
         } else if ((length + word.length + 1 > width) || length + word.length > width) {
             const lastWord = line.pop();
             line.push(lastWord.trim());
-            list.push(line);
+            lines.push(line);
             line = [word + " "];
         }
         if (i === words.length - 1 && line.length !== 0) {
             const lastWord = line.pop();
             line.push(lastWord.trim());
-            list.push(line);
+            lines.push(line);
         }
     }
 
-    return list;
+    return lines;
 };
 
 const justifyText = (list, width) => {
