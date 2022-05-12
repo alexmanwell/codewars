@@ -14,4 +14,21 @@ var moveZeros = function (arr) {
     }
 
     return result;
+};
+
+/* second sloution */
+function moveZeros(arr) {
+    let index = 0;
+    let length = arr.length;
+    let zeros = [];
+    while (index < arr.length) {
+        if (arr[index] === 0) {
+            const removed = arr.splice(index, 1);
+            zeros = [...zeros, ...removed];
+            length -= 1;
+        } else {
+            index++;
+        }
+    }
+    return [...arr, ...zeros];
 }
