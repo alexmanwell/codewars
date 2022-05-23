@@ -1,4 +1,7 @@
 function compare(a, b) {
+    if (a === null && b === null) {
+        return true;
+    }
     if (a === null || b === null) {
         return false;
     }
